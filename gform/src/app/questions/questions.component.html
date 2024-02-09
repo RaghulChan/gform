@@ -1,0 +1,53 @@
+<body>
+  <h2>Questions</h2>
+  <div>
+    <div class="ques">
+      <h3>
+        {{ currentQuestionNo + 1 }}. {{ questions[currentQuestionNo].question }}
+      </h3>
+      <div>
+        <div class="option">
+          <label>
+            <div
+              *ngFor="
+                let option of questions[currentQuestionNo].options;
+                let i = index
+              "
+            >
+              <mat-radio-button
+                (click)="
+                  optionClicked(option, questions[currentQuestionNo].id);
+                  selectedIndex = '' + i
+                "
+                class="{{
+                  selectedIndex == '' + i ? 'optiondisabled' : 'option'
+                }}"
+              ></mat-radio-button>
+              {{ option }}
+            </div>
+          </label>
+        </div>
+      </div>
+      <hr />
+      <span
+        >{{ currentQuestionNo + 1 }} of {{ questions.length }} Questions</span
+      >
+      <div class="btn">
+        <button mat-raised-button color="primary" (click)="preQues()">
+          Prev
+        </button>
+
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="selectedIndex == ''"
+          (click)="submitAnswers()"
+        >
+          {{ currentQuestionNo + 1 == questions.length ? "submit" : "Next" }}
+        </button>
+      </div>
+    </div>
+    <!-- <mat-divider></mat-divider> -->
+  </div>
+</body>
+<!-- <router-outlet></router-outlet> -->

@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  background-color: silver;
+}
+
+/* button {
+  margin: auto;
+  padding: 10px 50px 10px 50px;
+  background-color: blue;
+  color: white;
+  border-radius: 10px;
+}
+button:hover {
+  background-color: red;
+} */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

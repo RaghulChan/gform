@@ -1,0 +1,19 @@
+<h1>Results you scored : {{point}} / {{questions.length }}</h1>
+<div *ngFor="let question of questions" class="question-container">
+  <div class="container">
+    <h3>{{ question.id }}. {{ question.question }}</h3>
+    <!-- <p
+      [ngClass]="{
+        correct: userAnswers[question.id] === question.answer,
+        incorrect: userAnswers[question.id] !== question.answer
+      }"
+    >
+      <b>Your answer: {{ userAnswers[question.id] }} <br><br> Correct answer:
+        {{ question.answer }}</b>
+    </p> -->
+    <p class="{{getResult(userAnswers[question.id],question.answer) }}">
+      <b>Your answer: {{ userAnswers[question.id] }} <br><br> Correct answer:
+        {{ question.answer }}</b>
+    </p>
+  </div>
+</div>
