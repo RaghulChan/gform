@@ -28,12 +28,21 @@ a {
 }
 .btn {
   display: flex;
-  margin: 0px 300px 0px 500px;
+  justify-content: space-between;
   /* padding: 20px 20px 0px 20px; 
   background-color: aliceblue; */
 }
-button {
-  margin: 10px;
+.left {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  margin: 10px 0px;
+}
+.right {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  margin: 10px 0px;
 }
 a:hover {
   color: red;

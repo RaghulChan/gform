@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { GformServiceService } from '../service/gform-service.service';
 
 @Component({
   selector: 'app-start',
@@ -8,6 +7,4 @@ import { GformServiceService } from '../service/gform-service.service';
 })
 export class StartComponent {
   hide = true;
-  constructor(private _gformservice: GformServiceService) {}
-  login = [...this._gformservice.login];
 }

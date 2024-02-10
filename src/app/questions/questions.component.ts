@@ -15,7 +15,10 @@ export class QuestionsComponent implements OnInit {
     private router: Router
   ) {}
   ngOnInit(): void {
-    this.questions = this._gormservice.getQuestionsData();
+    // this.questions = this._gormservice.getQuestionsData();
+    this._gormservice.getQuestions().subscribe((questions) => {
+      this.questions = questions;
+    });
   }
 
   currentQuestionNo: number = 0;
@@ -28,7 +31,9 @@ export class QuestionsComponent implements OnInit {
   }
 
   preQues() {
-    if (this.currentQuestionNo + 1 < this.questions.length) {
+    if (this.currentQuestionNo + 1 > 0) {
+      const oldAnswer = this.userAnswers[this.currentQuestionNo];
+      console.log(oldAnswer);
       this.currentQuestionNo--;
     }
   }

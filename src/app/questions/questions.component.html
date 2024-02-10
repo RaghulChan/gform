@@ -34,18 +34,26 @@
         >{{ currentQuestionNo + 1 }} of {{ questions.length }} Questions</span
       >
       <div class="btn">
-        <button mat-raised-button color="primary" (click)="preQues()">
-          Prev
-        </button>
-
-        <button
-          mat-raised-button
-          color="primary"
-          [disabled]="selectedIndex == ''"
-          (click)="submitAnswers()"
-        >
-          {{ currentQuestionNo + 1 == questions.length ? "submit" : "Next" }}
-        </button>
+        <div class="left">
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="currentQuestionNo === 0"
+            (click)="preQues()"
+          >
+            Prev
+          </button>
+        </div>
+        <div class="right">
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="selectedIndex == ''"
+            (click)="submitAnswers()"
+          >
+            {{ currentQuestionNo + 1 == questions.length ? "submit" : "Next" }}
+          </button>
+        </div>
       </div>
     </div>
   </div>

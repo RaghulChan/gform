@@ -10,10 +10,14 @@ import { GformServiceService } from '../service/gform-service.service';
 export class SubmitComponentComponent implements OnInit {
   point: number = 0;
   constructor(private _submitservice: GformServiceService) {}
-
-  questions = this._submitservice.getQuestionsData();
+  questions: any;
+  // questions = this._submitservice.getQuestionsData();
   userAnswers: { [key: number]: string } = this._submitservice.userAnswer;
-  ngOnInit() {}
+  ngOnInit() {
+    this._submitservice.getQuestions().subscribe((questions) => {
+      this.questions = questions;
+    });
+  }
   getResult(userAnswer: any, answer: any) {
     if (userAnswer === answer) {
       this.point++;
