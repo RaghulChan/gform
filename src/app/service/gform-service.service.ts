@@ -14,4 +14,9 @@ export class GformServiceService {
   getQuestions(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
+
+  // updateData(questions: any): Observable<any> {
+  //   const url = `${this.apiUrl}/${questions.id}`;
+  //   return this.http.put<any>(url, questions.id);
+  // }
 }

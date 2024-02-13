@@ -32,9 +32,21 @@ export class QuestionsComponent implements OnInit {
 
   preQues() {
     if (this.currentQuestionNo + 1 > 0) {
-      const oldAnswer = this.userAnswers[this.currentQuestionNo];
-      console.log(oldAnswer);
       this.currentQuestionNo--;
+      this.loadAnswer();
+    }
+  }
+
+  loadAnswer() {
+    let question = this.questions[this.currentQuestionNo];
+    let oldAnswer = this.userAnswers[question.id];
+    if (oldAnswer) {
+      let previousAnswerIndex = this.questions[
+        this.currentQuestionNo
+      ].options.findIndex((res: any) => res == oldAnswer);
+      this.selectedIndex = '' + previousAnswerIndex;
+    } else {
+      this.selectedIndex = '';
     }
   }
 
