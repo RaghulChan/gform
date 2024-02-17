@@ -44,6 +44,17 @@ a {
   justify-content: flex-end;
   margin: 10px 0px;
 }
+.link {
+  display: flex;
+  justify-content: end;
+}
+.link a {
+  color: #9e9999;
+}
+.link a:hover {
+  cursor: pointer;
+  color: red;
+}
 a:hover {
   color: red;
 }

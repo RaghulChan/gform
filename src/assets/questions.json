@@ -92,7 +92,8 @@
         "@ComponentStyle()",
         "@Component({styles: …})"
       ],
-      "answer": "@Component({styles: …})"
+      "answer": ["@Component({styles: …})", "@Style()"],
+      "selectedOptions": []
     },
     {
       "id": 10,
@@ -103,7 +104,12 @@
         "To pause the execution of the application",
         "To run change detection asynchronously"
       ],
-      "answer": "To automatically unsubscribe from observables or promises"
+      "answer": [
+        "To automatically unsubscribe from observables or promises",
+        "To pause the execution of the application",
+        "To run change detection asynchronously"
+      ],
+      "selectedOptions": []
     }
   ]
 }

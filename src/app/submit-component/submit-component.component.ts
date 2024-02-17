@@ -23,7 +23,6 @@ export class SubmitComponentComponent implements OnInit {
       this.point++;
       return 'correct';
     } else {
-      this.point -= 0.5;
       return 'incorrect';
     }
   }

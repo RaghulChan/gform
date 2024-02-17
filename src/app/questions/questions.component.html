@@ -14,19 +14,28 @@
                 let i = index
               "
             >
-              <mat-radio-button
-                (click)="
-                  optionClicked(option, questions[currentQuestionNo].id);
-                  selectedIndex = '' + i
-                "
-                class="{{
-                  selectedIndex == '' + i ? 'optiondisabled' : 'option'
-                }}"
-              >
-                {{ option }}</mat-radio-button
-              >
+              <div *ngIf="questions[currentQuestionNo + 2]; else elseBlock">
+                <mat-radio-button
+                  (click)="
+                    optionClicked(option, questions[currentQuestionNo].id);
+                    selectedIndex = '' + i
+                  "
+                  [checked]="selectedIndex == '' + i"
+                  class="{{
+                    selectedIndex == '' + i ? 'optiondisabled' : 'option'
+                  }}"
+                >
+                  {{ option }}</mat-radio-button
+                >
+              </div>
+              <ng-template #elseBlock>
+                <input type="checkbox" class="checkbox" />{{ option }}
+              </ng-template>
             </div>
           </label>
+          <div class="link">
+            <a (click)="clear()">Clear</a>
+          </div>
         </div>
       </div>
       <hr />
@@ -45,12 +54,7 @@
           </button>
         </div>
         <div class="right">
-          <button
-            mat-raised-button
-            color="primary"
-            [disabled]="selectedIndex == ''"
-            (click)="submitAnswers()"
-          >
+          <button mat-raised-button color="primary" (click)="submitAnswers()">
             {{ currentQuestionNo + 1 == questions.length ? "submit" : "Next" }}
           </button>
         </div>
