@@ -8,33 +8,35 @@
       <div>
         <div class="option">
           <label>
-            <div
-              *ngFor="
-                let option of questions[currentQuestionNo].options;
-                let i = index
-              "
-            >
-              <div *ngIf="questions[currentQuestionNo + 2]; else elseBlock">
-                <mat-radio-button
-                  (click)="
-                    optionClicked(option, questions[currentQuestionNo].id);
-                    selectedIndex = '' + i
-                  "
-                  [checked]="selectedIndex == '' + i"
-                  class="{{
-                    selectedIndex == '' + i ? 'optiondisabled' : 'option'
-                  }}"
-                >
-                  {{ option }}</mat-radio-button
-                >
-              </div>
-              <ng-template #elseBlock>
-                <input type="checkbox" class="checkbox" />{{ option }}
-              </ng-template>
+    
+              <div [ngSwitch]="questions[currentQuestionNo].questionType">
+                <ng-template [ngSwitchCase]="questionTypeEnum.singleChoice">
+                  <div *ngFor=" let option of questions[currentQuestionNo].options;let i = index">
+                  <mat-radio-button (click)="optionClicked(option, questions[currentQuestionNo].id)"
+                  [checked]="this.userAnswers[questions[currentQuestionNo].id]?this.userAnswers[questions[currentQuestionNo].id] == option : false ">{{ option }}</mat-radio-button>
+                  </div>
+                </ng-template>
+                 <ng-template [ngSwitchCase]="questionTypeEnum.multipleChoice">
+                  <div *ngFor=" let option of questions[currentQuestionNo].options;let i = index">
+                  <input type="checkbox" [checked]="this.userAnswers[questions[currentQuestionNo].id]?this.userAnswers[questions[currentQuestionNo].id].includes(option) : false" (change)="onCheckBoxChange($event,option,questions[currentQuestionNo].id)" /><span style="font-weight:normal; padding: 12px;font-size: 16px;">{{ option }}</span>
+                  </div>
+                </ng-template>
+                 <ng-template [ngSwitchCase]="questionTypeEnum.trueOrfalseChoice">
+                  <div class="d-flex">
+                    <button type="button" style="padding: 10px;width: 6rem;text-align: center;display: block;" class="btn btn-secondary">True</button>
+                    <button type="button" style="padding: 10px; width: 6rem;margin-left:10px;text-align: center;display: block;" class="btn btn-secondary">False</button>
+                  </div>
+                </ng-template>
+                 <ng-template [ngSwitchCase]="questionTypeEnum.imageBasedChoice">
+                  <p>Four</p>
+                </ng-template>
+                 <ng-template [ngSwitchCase]="questionTypeEnum.rankingBasedChoice">
+                  <p>Five</p>
+                </ng-template>
             </div>
           </label>
           <div class="link">
-            <a (click)="clear()">Clear</a>
+            <a >Clear</a>
           </div>
         </div>
       </div>

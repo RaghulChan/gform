@@ -1,8 +1,9 @@
 {
-  "questions": [
+  "questions":[
     {
       "id": 1,
       "question": "What purpose does the ngModel directive serve?",
+      "questionType":1,
       "options": [
         "Handling HTTP request",
         "Data binding for both input and output",
@@ -14,6 +15,7 @@
     {
       "id": 2,
       "question": "How can you generate a new service using Angular CLI?",
+      "questionType":1,
       "options": [
         "ng create service my-service",
         "ng generate service my-service",
@@ -25,6 +27,7 @@
     {
       "id": 3,
       "question": "What is the use of Angular Directives?",
+      "questionType":1,
       "options": [
         "To inject services",
         "To initialize component services",
@@ -36,12 +39,14 @@
     {
       "id": 4,
       "question": "Which Angular decorator is used for making a class a root module?",
+      "questionType":1,
       "options": ["@Module()", "@Component()", "@Directive()", "@NgModule()"],
       "answer": "@NgModule()"
     },
     {
       "id": 5,
       "question": "Which is the correct syntax for an Angular Event binding?",
+      "questionType":1,
       "options": [
         "{click}=”doSomething()”",
         "on-click=”doSomething()”",
@@ -53,6 +58,7 @@
     {
       "id": 6,
       "question": "Which command is used to install Angular CLI globally?",
+      "questionType":1,
       "options": [
         "npm install @angular/cli",
         "npm global install @angular/cli",
@@ -64,6 +70,7 @@
     {
       "id": 7,
       "question": "How do you define a route in Angular?",
+      "questionType":1,
       "options": [
         "Using <a> tags",
         "Using the Router service",
@@ -75,6 +82,7 @@
     {
       "id": 8,
       "question": "Whats the primary purpose of the ngOnInit lifecycle hook in Angular components?",
+      "questionType":1,
       "options": [
         "Initialization and data retrieval",
         "Destruction of instances",
@@ -86,18 +94,19 @@
     {
       "id": 9,
       "question": "Which decorator allows you to define styles for a component?",
+      "questionType":2,
       "options": [
         "@Style()",
         "@ViewStyle()",
         "@ComponentStyle()",
         "@Component({styles: …})"
       ],
-      "answer": ["@Component({styles: …})", "@Style()"],
-      "selectedOptions": []
+      "answer": ["@Component({styles: …})", "@Style()"]
     },
     {
       "id": 10,
       "question": "What is the purpose of the async pipe in Angular?",
+      "questionType":2,
       "options": [
         "To make asynchronous HTTP requests",
         "To automatically unsubscribe from observables or promises",
@@ -108,8 +117,7 @@
         "To automatically unsubscribe from observables or promises",
         "To pause the execution of the application",
         "To run change detection asynchronously"
-      ],
-      "selectedOptions": []
+      ]
     }
   ]
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GformServiceService } from '../service/gform-service.service';
+import { questionTypeEnum } from '../Common/enum/questionTypeEnum';
 
 @Component({
   selector: 'app-questions',
@@ -9,6 +10,7 @@ import { GformServiceService } from '../service/gform-service.service';
 })
 export class QuestionsComponent implements OnInit {
   filter_source_type_value = null;
+  questionTypeEnum=questionTypeEnum;
   questions: any;
   constructor(
     private _gormservice: GformServiceService,
@@ -17,56 +19,47 @@ export class QuestionsComponent implements OnInit {
   ngOnInit(): void {
     // this.questions = this._gormservice.getQuestionsData();
     this._gormservice.getQuestions().subscribe((questions) => {
-      this.questions = questions;
+       this.questions = questions;
     });
   }
 
   currentQuestionNo: number = 0;
-  userAnswers: { [key: number]: string } = {};
+  userAnswers: { [key: number]: any } = {};
   answer = '';
-  selectedIndex = '';
+  selectedAnswer:any = [];
 
   optionClicked(options: any, questionIndex: any) {
-    this.userAnswers[questionIndex] = options;
+    this.userAnswers[questionIndex] = [options];
   }
-
+  onCheckBoxChange(event:any,option:string,questionIndex:any)
+  {
+    if(!this.userAnswers[questionIndex])
+    {
+      this.userAnswers[questionIndex]=[];
+    }
+    if(event.target.checked)
+    {
+      this.userAnswers[questionIndex].push(option);
+    }
+    else
+    {
+      this.userAnswers[questionIndex]=this.userAnswers[questionIndex].filter((e:string) => e !== option);
+    }
+  }
   preQues() {
     if (this.currentQuestionNo + 1 > 0) {
       this.currentQuestionNo--;
-      this.loadAnswer();
-    }
-  }
-
-  loadAnswer() {
-    let question = this.questions[this.currentQuestionNo];
-    let oldAnswer = this.userAnswers[question.id];
-    if (oldAnswer) {
-      let previousAnswerIndex = this.questions[
-        this.currentQuestionNo
-      ].options.findIndex((res: any) => res == oldAnswer);
-      // let previousAnswerIndex = this.questions[
-      //   this.currentQuestionNo
-      // ].options.findIndex((res: any) => res == oldAnswer);
-      this.selectedIndex = '' + previousAnswerIndex;
-    } else {
-      this.selectedIndex = '';
     }
   }
 
   submitAnswers() {
-    this.selectedIndex = '';
     console.log('User Answers:', this.userAnswers);
     if (this.currentQuestionNo + 1 < this.questions.length) {
       this.currentQuestionNo++;
-      this.loadAnswer();
     } else {
       this._gormservice.userAnswer = this.userAnswers;
       this.router.navigateByUrl('/submit');
     }
-  }
-
-  clear() {
-    this.selectedIndex = '';
   }
 
   checkAnswer() {
