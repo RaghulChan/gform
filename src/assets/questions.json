@@ -2,6 +2,18 @@
   "questions":[
     {
       "id": 1,
+      "question": "How can you generate a new component using Angular CLI?",
+      "questionType":4,
+      "options": [
+        "assets/createComponent2.png",
+        "assets/createComponent1.png",
+        "assets/createComponent4.png",
+        "assets/createComponent3.png"
+      ],
+      "answer": "assets/createComponent1.png"
+    },
+    {
+      "id": 2,
       "question": "What purpose does the ngModel directive serve?",
       "questionType":1,
       "options": [
@@ -11,18 +23,6 @@
         "Controlling animation"
       ],
       "answer": "Data binding for both input and output"
-    },
-    {
-      "id": 2,
-      "question": "How can you generate a new service using Angular CLI?",
-      "questionType":1,
-      "options": [
-        "ng create service my-service",
-        "ng generate service my-service",
-        "ng new service my-service",
-        "ng add service my-service"
-      ],
-      "answer": "ng generate service my-service"
     },
     {
       "id": 3,
