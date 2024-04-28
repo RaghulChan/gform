@@ -24,8 +24,9 @@ mainQuestions:any;
     private router: Router
   ) {}
   ngOnInit(): void {
+    this.questions = this._gormservice.getQuestions();
      this._gormservice.getQuestions().subscribe((questions) => {
-         this.questions = questions;
+        this.questions = questions;
         this.mainQuestions=JSON.parse(JSON.stringify(this.questions));
     });
       

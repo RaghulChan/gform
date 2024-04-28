@@ -1,8 +1,9 @@
 {
-  "questions": [
+  "questions":[
     {
       "id": 1,
       "question": "What purpose does the ngModel directive serve?",
+      "questionType":1,
       "options": [
         "Handling HTTP request",
         "Data binding for both input and output",
@@ -13,35 +14,40 @@
     },
     {
       "id": 2,
-      "question": "How can you generate a new service using Angular CLI?",
+      "question": "How can you generate a new component using Angular CLI?",
+      "questionType":4,
       "options": [
-        "ng create service my-service",
-        "ng generate service my-service",
-        "ng new service my-service",
-        "ng add service my-service"
+        "assets/createComponent2.png",
+        "assets/createComponent1.png",
+        "assets/createComponent4.png",
+        "assets/createComponent3.png"
       ],
-      "answer": "ng generate service my-service"
+      "answer": "assets/createComponent1.png"
     },
+   
     {
       "id": 3,
-      "question": "What is the use of Angular Directives?",
+      "question": "Rank the lifecycle hooks?",
+      "questionType":5,
       "options": [
-        "To inject services",
-        "To initialize component services",
-        "To manipulate the Dom elements",
-        "To store data"
+        "ngOnInit()",
+        "ngOnChange()",
+        "ngDoCheck()",
+        "constructor()"
       ],
-      "answer": "To manipulate the Dom elements"
+      "answer":["constructor()","ngOnChange()","ngOnInit()","ngDoCheck()"]
     },
     {
       "id": 4,
       "question": "Which Angular decorator is used for making a class a root module?",
+      "questionType":1,
       "options": ["@Module()", "@Component()", "@Directive()", "@NgModule()"],
       "answer": "@NgModule()"
     },
     {
       "id": 5,
       "question": "Which is the correct syntax for an Angular Event binding?",
+      "questionType":1,
       "options": [
         "{click}=”doSomething()”",
         "on-click=”doSomething()”",
@@ -52,18 +58,14 @@
     },
     {
       "id": 6,
-      "question": "Which command is used to install Angular CLI globally?",
-      "options": [
-        "npm install @angular/cli",
-        "npm global install @angular/cli",
-        "npm install -g @angular/cli",
-        "npm -install @angular/cli"
-      ],
-      "answer": "npm install -g @angular/cli"
+      "question": "'npm install -g @angular/cli' is used to install Angular CLI globally?",
+      "questionType":3,
+      "answer": "true"
     },
     {
       "id": 7,
       "question": "How do you define a route in Angular?",
+      "questionType":1,
       "options": [
         "Using <a> tags",
         "Using the Router service",
@@ -75,6 +77,7 @@
     {
       "id": 8,
       "question": "Whats the primary purpose of the ngOnInit lifecycle hook in Angular components?",
+      "questionType":1,
       "options": [
         "Initialization and data retrieval",
         "Destruction of instances",
@@ -85,31 +88,67 @@
     },
     {
       "id": 9,
-      "question": "Which decorator allows you to define styles for a component?",
+      "question": "Select a prime numbers?",
+      "questionType":2,
       "options": [
-        "@Style()",
-        "@ViewStyle()",
-        "@ComponentStyle()",
-        "@Component({styles: …})"
+        "three",
+        "nine",
+        "five",
+        "seven"
       ],
-      "answer": ["@Component({styles: …})", "@Style()"],
-      "selectedOptions": []
+      "answer": ["three", "five","seven"]
     },
     {
       "id": 10,
-      "question": "What is the purpose of the async pipe in Angular?",
+      "question": "selected a junkfood?",
+      "questionType":2,
       "options": [
-        "To make asynchronous HTTP requests",
-        "To automatically unsubscribe from observables or promises",
-        "To pause the execution of the application",
-        "To run change detection asynchronously"
+        "cakes and biscuits",
+        "fastfoods",
+        "fruits",
+        "vegetables"
       ],
       "answer": [
-        "To automatically unsubscribe from observables or promises",
-        "To pause the execution of the application",
-        "To run change detection asynchronously"
+        "cakes and biscuits",
+        "fastfoods"
+        
+      ]
+    },    
+    {
+      "id": 11,
+      "question": "How can you generate a new service using Angular CLI?",
+      "questionType":1,
+      "options": [
+        "ng create service my-service",
+        "ng generate service my-service",
+        "ng new service my-service",
+        "ng add service my-service"
       ],
-      "selectedOptions": []
+      "answer": "ng generate service my-service"
+    },
+    {
+      "id": 12,
+      "question": "assets/imageQuestion1.png",
+      "questionType":6,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "1"
+    }, 
+    {
+      "id": 13,
+      "question": "assets/imageQuestion2.png",
+      "questionType":6,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "3"
     }
   ]
 }

@@ -2,30 +2,15 @@
   <h2>Questions</h2>
   <div>
     <div class="ques">
-      
-      <div *ngIf="questions[currentQuestionNo].questionType==questionTypeEnum.imageBaseQuestion; then thenBlock else elseBlock"></div>
-<ng-template #thenBlock>
-  {{ currentQuestionNo + 1 }}. <br>
-  <img [src]="questions[currentQuestionNo].question">
-</ng-template>
-<ng-template #elseBlock> 
-  <h3>
-  {{ currentQuestionNo + 1 }}. {{ questions[currentQuestionNo].question }}
-</h3>
-</ng-template>
-     
+      <h3>
+        {{ currentQuestionNo + 1 }}. {{ questions[currentQuestionNo].question }}
+      </h3>
       <div>
         <div class="option">
           <label>
     
               <div [ngSwitch]="questions[currentQuestionNo].questionType">
                 <ng-template [ngSwitchCase]="questionTypeEnum.singleChoice">
-                  <div *ngFor=" let option of questions[currentQuestionNo].options;let i = index">
-                  <mat-radio-button (click)="optionClicked(option, questions[currentQuestionNo].id)"
-                  [checked]="this.userAnswers[questions[currentQuestionNo].id]?this.userAnswers[questions[currentQuestionNo].id] == option : false ">{{ option }}</mat-radio-button>
-                  </div>
-                </ng-template>
-                <ng-template [ngSwitchCase]="questionTypeEnum.imageBaseQuestion">
                   <div *ngFor=" let option of questions[currentQuestionNo].options;let i = index">
                   <mat-radio-button (click)="optionClicked(option, questions[currentQuestionNo].id)"
                   [checked]="this.userAnswers[questions[currentQuestionNo].id]?this.userAnswers[questions[currentQuestionNo].id] == option : false ">{{ option }}</mat-radio-button>

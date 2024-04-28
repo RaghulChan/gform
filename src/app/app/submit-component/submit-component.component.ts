@@ -17,8 +17,8 @@ export class SubmitComponentComponent implements OnInit {
   userAnswers: { [key: number]: string } = this._submitservice.userAnswer;
   ngOnInit() {
     this._submitservice.getQuestions().subscribe((questions) => {
-     this.questions = questions;
-     });
+      this.questions = questions;
+    });
   }
   getResult(userAnswer: any, answer: any,questionType:any) {
     if (questionType==this.questionTypeEnum.multipleChoice && userAnswer? userAnswer.length==answer.length &&  answer.filter((element:any) => userAnswer.includes(element)).length==answer.length:userAnswer == answer+'') {

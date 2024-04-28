@@ -1,18 +1,7 @@
 <h1>Results you scored : {{ point }} / {{ questions.length }}</h1>
 <div *ngFor="let question of questions" class="question-container">
   <div class="container">
-    
-    <div *ngIf="question.questionType==questionTypeEnum.imageBaseQuestion; then thenBlock else elseBlock"></div>
-    <ng-template #thenBlock>
-      {{ question.id }}. <br>
-      <img [src]="question.question">
-    </ng-template>
-    <ng-template #elseBlock> 
-      <h3>
-        <h3>{{ question.id }}. {{ question.question }}</h3>
-    </h3>
-    </ng-template>
-  
+    <h3>{{ question.id }}. {{ question.question }}</h3>
     
     <div class="{{ getResult(userAnswers[question.id], question.answer,question.questionType) }}">
     <div [ngSwitch]="question.questionType">
